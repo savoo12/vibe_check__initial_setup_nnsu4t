@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-theme-primary: #F8F7F4; /* Soft ivory */
+  --color-theme-secondary: #EAE7DC; /* Warm cream */
+  --color-theme-accent: #BFCDB2; /* Muted sage */
+  --color-theme-text: #2D2E2E; /* Deep charcoal */
+  --color-theme-highlight: #D4B88E; /* Subtle gold */
+
+  /* Mood specific colors - can be adjusted for better harmony */
+  --color-mood-happy: #FFD700;
+  --color-mood-happy-text: #5D4037; /* Darker text for yellow */
+  --color-mood-chill: #A4C8D5;
+  --color-mood-chill-text: #2D2E2E;
+  --color-mood-energetic: #F5A684;
+  --color-mood-energetic-text: #2D2E2E;
+  --color-mood-anxious: #C3B4D8;
+  --color-mood-anxious-text: #2D2E2E;
+  --color-mood-focused: #A8D8B9;
+  --color-mood-focused-text: #2D2E2E;
+  --color-mood-social: #E6B2C6;
+  --color-mood-social-text: #2D2E2E;
+}
+
+body {
+  font-family: "Inter Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: var(--color-theme-text);
+  background-color: var(--color-theme-primary); /* Body background to soft ivory */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* General input field styling */
+.input-field {
+  @apply w-full px-4 py-3 rounded-lg bg-theme-secondary border border-theme-accent/50 focus:border-theme-highlight focus:ring-1 focus:ring-theme-highlight outline-none transition-shadow shadow-subtle hover:shadow-md text-theme-text placeholder-theme-text/60;
+}
+
+/* General button styling */
+.button-base {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-200 ease-in-out shadow-subtle hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.button-primary {
+  @apply button-base bg-theme-accent text-theme-text hover:bg-theme-accent/80 focus:ring-theme-accent;
+}
+.button-primary-highlight {
+ @apply button-base bg-theme-highlight text-theme-primary hover:bg-theme-highlight/90 focus:ring-theme-highlight;
+}
+
+.button-secondary {
+  @apply button-base bg-theme-secondary text-theme-text hover:bg-theme-secondary/80 border border-theme-accent/50 focus:ring-theme-accent;
+}
+
+.button-subtle {
+  @apply button-base bg-transparent text-theme-text hover:bg-theme-secondary/50 focus:ring-theme-accent;
+}
+
+
+/* Card styling for content sections */
+.content-card {
+  @apply bg-theme-secondary p-6 rounded-lg shadow-md; /* Warm cream background, subtle shadow */
+}
+
+/* Specific auth form styles, reusing general styles */
+.auth-input-field {
+  @apply input-field;
+}
+
+.auth-button {
+  @apply button-primary-highlight w-full text-lg; /* Use gold for primary auth actions */
+}
+
+/* VibeCheckApp specific button styles, adapt to new theme */
+.vibe-button { /* General class for vibe buttons if needed, or remove if too specific */
+  @apply button-base;
+}
+
+.vibe-button-primary { /* For main call-to-action like "Connect" */
+  @apply button-primary-highlight flex-1 py-3 text-lg;
+}
+
+.vibe-button-secondary { /* For secondary actions like "Pass" */
+  @apply button-subtle border border-theme-accent/70 flex-1 py-3 text-lg;
+}
+
+/* Remove .glass-card and related styles if not used */
+/* Remove old .vibe-button, .vibe-button-primary, .vibe-button-secondary if they are fully replaced */
+
+/* Ensure headings and text have good contrast and hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  @apply text-theme-text;
+  /* Add margin/padding as needed for whitespace */
+}
+
+/* Example of thin ring progress - this is a conceptual class, actual implementation depends on component */
+.progress-ring-thin circle {
+  stroke-width: 2;
+  stroke: var(--color-theme-accent);
+  fill: transparent;
+  stroke-linecap: round;
+}
+
+/* For loading spinners, use theme colors */
+.loading-spinner {
+  @apply animate-spin rounded-full h-12 w-12 border-b-2 border-theme-accent;
+}
+.loading-spinner-sm {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-theme-accent;
+}
+
+/* General link styling */
+a {
+  @apply text-theme-highlight hover:text-theme-accent transition-colors;
+}
+
+/* Utility for subtle borders */
+.border-subtle {
+  @apply border-theme-accent/30;
+}
+
